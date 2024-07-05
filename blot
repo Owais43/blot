@@ -1,0 +1,61 @@
+// check out the workshop tab to get started
+// welcome to blot!
+
+// check out this guide to learn how to program in blot
+// https://blot.hackclub.com/editor?guide=start
+
+
+
+const width = 125;
+const height = 125;
+
+setDocDimensions(width, height);
+
+drawLines([
+    [[0, 0], [width, height]]
+])
+
+const s = 50;
+
+drawLines([
+    [[0, 0], [0, s], [s, s], [s, 0], [0, 0]]
+])
+const t = new bt.Turtle()
+const size = 100
+
+t.forward(size)
+t.left(120)
+t.forward(size)
+t.left(120)
+t.forward(size)
+
+
+const shape = (n, size) => {
+  const t = new bt.Turtle()
+  for (let i = 0; i < n; i++) t.forward(size).right(360/n)
+  return t.lines()
+}
+
+drawLines(shape(3, 120))  // triangle with 120mm sides
+drawLines(shape(5, 80))  // pentagon with 80mm sides
+drawLines(t.lines())
+// store final lines here
+const finalLines = [];
+
+// create a polyline
+const polyline = [
+  [30, 90],
+  [100, 90],
+  [100, 30],
+  [30, 30],
+  [30, 90]
+];
+
+// add the polyline to the final lines
+finalLines.push(polyline);
+
+// transform lines using the toolkit
+bt.rotate(finalLines, 45);
+
+// draw it
+drawLines(finalLines);
